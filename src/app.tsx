@@ -1,23 +1,15 @@
 import React from 'react';
-import logo from './assets/icons/logo.svg';
-import {SApp, SHeader, SLink, SLogo} from "./assets/styles/app.styles";
+import { SApp } from './assets/styles/app.styles';
+import ProductCard from '././components/product/card/product-card.component';
+import { productListData } from './data/product.data';
+import { fetchProductsApi } from './services/product-api.service';
+import { Product_URL } from './constants/api.constants';
+import ProductListContainer from './components/product/list/product-list.container';
 
 function App() {
     return (
         <SApp>
-            <SHeader>
-                <SLogo src={logo} alt="logo"/>
-                <p>
-                    Edit <code>src/App.tsx</code> and save to reload.
-                </p>
-                <SLink
-                    href="https://reactjs.org"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Learn React
-                </SLink>
-            </SHeader>
+            <ProductListContainer />
         </SApp>
     );
 }
