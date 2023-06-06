@@ -1,12 +1,16 @@
 import { useEffect, useState } from 'react';
 import { Product_URL } from '../constants/api.constants';
-import { ProductModel } from '../models/product.model';
 import { fetchProductsApi } from '../services/product-api.service';
+import { setProductsAction } from '../store/product/product.slice';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectProducts } from '../models/state/product.selectors';
 
 export const useProducts = () => {
-    const [products, setProducts] = useState<ProductModel[]>();
     const [error, setError] = useState<string>('');
     const [loading, setLoading] = useState<boolean | null>(null);
+
+    const dispatch = useDispatch();
+    const products = useSelector(selectProducts);
 
     const fetchProducts = async () => {
         try {
@@ -20,7 +24,9 @@ export const useProducts = () => {
     };
 
     useEffect(() => {
-        fetchProducts().then(response => setProducts(response?.data));
-    }, []);
+        fetchProducts().then(response => {
+            if (response) dispatch(setProductsAction(response.data));
+        });
+    }, [dispatch]);
     return { products, error, loading };
 };
