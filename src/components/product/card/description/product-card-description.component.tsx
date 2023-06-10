@@ -1,4 +1,4 @@
-import React, { memo, FC, useState } from 'react';
+import React, { memo, FC, useState, useEffect } from 'react';
 import { Description, Button } from './styled';
 
 interface ProductCardDescriptionProps {
@@ -17,6 +17,10 @@ const ProductCardDescription: FC<ProductCardDescriptionProps> = ({ text, maxLeng
         sliced: text.slice(0, 150),
         full: text,
     });
+
+    useEffect(() => {
+        if (text.length < maxLength) setIsFullDescription(true);
+    }, [maxLength, text.length]);
 
     const formatedDescription = isFullDescription ? description.full : `${description.sliced}...`;
     const buttonText = isFullDescription ? 'Hide details' : 'Show details';

@@ -5,10 +5,10 @@ export const Card = styled.div`
     padding: 20px;
     background-color: white;
     gap: 20px;
+    position: relative;
 `;
 
 export const ImageWrapper = styled.div`
-    background-color: white;
     display: flex;
     height: 240px;
     padding: 10px;
@@ -27,7 +27,6 @@ export const Image = styled.div`
 
 export const Title = styled.div`
     font-size: 20px;
-    margin: 0 auto;
     text-align: left;
 `;
 
@@ -40,4 +39,6 @@ export const Info = styled.div`
 export const Price = styled.div`
     font-size: 24px;
     margin-left: auto;
+    font-weight: bold;
+    text-decoration: underline;
 `;

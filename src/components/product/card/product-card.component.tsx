@@ -6,7 +6,7 @@ import { MAX_LENGTH } from '../../../constants/product-card-description.constans
 
 type ProductCardProps = ProductModel;
 
-const ProductCard: React.FC<ProductCardProps> = ({ id, category, description, image, price, rating, title }) => {
+const ProductCard: React.FC<ProductCardProps> = ({ description, image, price, title }) => {
     return (
         <Card>
             <ImageWrapper>

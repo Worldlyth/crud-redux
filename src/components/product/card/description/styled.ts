@@ -16,4 +16,8 @@ export const Button = styled.button`
     margin-top: 20px;
     border: 1px solid black;
     cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 90px;
 `;
