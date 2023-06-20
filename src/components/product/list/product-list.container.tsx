@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useProducts } from '../../../hooks/useProducts';
-import ProductCreationContainer from '../creation/container/ProductCreationContainer';
+import ProductCreationContainer from '../creation/container/product-creation.container';
 
 import ProductList from './product-list.component';
 
