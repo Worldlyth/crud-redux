@@ -1,16 +1,19 @@
 import { memo, FC, TextareaHTMLAttributes } from 'react';
-import { StyledForm, StyledLabel, StyledTextArea } from './styled';
+import { TextareaContainer, StyledLabel, StyledTextArea, ValidateMessage } from './styled';
 
 interface TextAreaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
     label?: string;
+    message?: string;
+    innerValue?: string;
 }
 
-const TextArea: FC<TextAreaProps> = ({ rows, label, placeholder }) => {
+const TextArea: FC<TextAreaProps> = ({ rows, label, placeholder, value, name, message, onChange }) => {
     return (
-        <StyledForm>
+        <TextareaContainer>
             <StyledLabel>{label}</StyledLabel>
-            <StyledTextArea rows={rows} placeholder={placeholder} />
-        </StyledForm>
+            <ValidateMessage>{message}</ValidateMessage>
+            <StyledTextArea onChange={onChange} rows={rows} placeholder={placeholder} value={value} name={name} />
+        </TextareaContainer>
     );
 };
 

@@ -1,24 +1,20 @@
-import { memo, FC, InputHTMLAttributes, useState } from 'react';
-import { StyledForm, StyledInput, StyledLabel } from './styled';
+import { memo, FC, InputHTMLAttributes } from 'react';
+import { InputContainer, StyledInput, StyledLabel, ValidateMessage } from './styled';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
     label?: string;
-    className?: string;
     innerValue?: string;
+    message?: string;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<InputProps> = ({ label, placeholder, className, defaultValue, value }) => {
-    const [innerValue, setInnerValue] = useState(value ?? defaultValue ?? '');
-
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setInnerValue(e.target.value);
-    };
-
+const Input: FC<InputProps> = ({ label, placeholder, className, name, value, message, onChange }) => {
     return (
-        <StyledForm className={className}>
+        <InputContainer className={className}>
             <StyledLabel>{label}</StyledLabel>
-            <StyledInput placeholder={placeholder} value={innerValue} onChange={onChange} />
-        </StyledForm>
+            <ValidateMessage>{message}</ValidateMessage>
+            <StyledInput type='text' placeholder={placeholder} value={value} onChange={onChange} name={name} />
+        </InputContainer>
     );
 };
 

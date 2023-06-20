@@ -25,10 +25,17 @@ export const StyledLabel = styled.label`
     margin-bottom: 0.5rem;
 `;
 
-export const StyledForm = styled.form`
+export const TextareaContainer = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: 500px;
     margin: 0 auto;
 `;
+
+
+export const ValidateMessage = styled.span`
+    color: red;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    `
